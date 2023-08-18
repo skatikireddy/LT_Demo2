@@ -33,10 +33,16 @@ public class TestNGTodo2 {
 
         String hub = "@hub.lambdatest.com/wd/hub";
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 11");
-        caps.setCapability("browserName", "firefox");
-        caps.setCapability("version", "latest");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("platformName", "ios");
+        capabilities.setCapability("deviceName", "iPad 10.9 (2022)");
+        capabilities.setCapability("platformVersion", "16");
+        capabilities.setCapability("isRealMobile", true);
+        
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setCapability("platform", "Windows 11");
+//        caps.setCapability("browserName", "firefox");
+//        caps.setCapability("version", "latest");
         caps.setCapability("build", "TestNG With Java_Jenkins1");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
