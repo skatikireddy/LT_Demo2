@@ -34,10 +34,10 @@ public class TestNGTodo2 {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 10");
-        caps.setCapability("browserName", "chrome");
+        caps.setCapability("platform", "Windows 11");
+        caps.setCapability("browserName", "safari");
         caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java_Terminal");
+        caps.setCapability("build", "TestNG With Java_Jenkins1");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
