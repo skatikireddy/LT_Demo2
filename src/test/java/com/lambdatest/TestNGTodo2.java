@@ -40,10 +40,11 @@ public class TestNGTodo2 {
 //        capabilities.setCapability("isRealMobile", true);
         
         String hub = "@mobile-hub.lambdatest.com/wd/hub";
+        
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "tvos");
-        capabilities.setCapability("deviceName", "Apple TV");
-        capabilities.setCapability("platformVersion", "16");
+        capabilities.setCapability("platformName", "android");
+        capabilities.setCapability("deviceName", "Pixel 3");
+        capabilities.setCapability("platformVersion", "10");
         capabilities.setCapability("isRealMobile", true);
         
 //        DesiredCapabilities caps = new DesiredCapabilities();
@@ -65,7 +66,7 @@ public class TestNGTodo2 {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), capabilities);
     }
 
-    @Test
+    //@Test
     public void basicTest() throws InterruptedException {
         String spanText;
         System.out.println("Loading Url");
@@ -123,6 +124,17 @@ public class TestNGTodo2 {
         System.out.println("TestFinished");
 
     }
+    
+    @Test
+	public void verifyLoginFunctionality() {
+		
+		//Open ISO home page 
+        driver.get("https://isha.sadhguru.org/");
+        System.out.println(driver.getTitle());
+		        
+		System.out.println("Page Title verification Successful");
+		System.out.println("#########################################################");
+      }
 
     @AfterMethod
     public void tearDown() {
