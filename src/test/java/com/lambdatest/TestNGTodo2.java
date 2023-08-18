@@ -39,7 +39,7 @@ public class TestNGTodo2 {
 //        capabilities.setCapability("platformVersion", "16");
 //        capabilities.setCapability("isRealMobile", true);
         
-        
+        String hub = "@mobile-hub.lambdatest.com/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "tvos");
         capabilities.setCapability("deviceName", "Apple TV");
