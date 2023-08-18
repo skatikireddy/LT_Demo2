@@ -43,9 +43,9 @@ public class TestNGTodo2 {
 //        caps.setCapability("platform", "Windows 11");
 //        caps.setCapability("browserName", "firefox");
 //        caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java_Jenkins1");
-        caps.setCapability("name", m.getName() + this.getClass().getName());
-        caps.setCapability("plugin", "git-testng");
+        capabilities.setCapability("build", "TestNG With Java_Jenkins1");
+        capabilities.setCapability("name", m.getName() + this.getClass().getName());
+        capabilities.setCapability("plugin", "git-testng");
 
         /*
         Enable Smart UI Project
@@ -53,9 +53,9 @@ public class TestNGTodo2 {
         */
 
         String[] Tags = new String[] { "Feature", "Magicleap", "Severe" };
-        caps.setCapability("tags", Tags);
+        capabilities.setCapability("tags", Tags);
 
-        driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
+        driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), capabilities);
     }
 
     @Test
