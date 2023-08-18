@@ -32,10 +32,17 @@ public class TestNGTodo2 {
         */
 
         //String hub = "@hub.lambdatest.com/wd/hub";
-        String hub = "@mobile-hub.lambdatest.com/wd/hub";
+//        String hub = "@mobile-hub.lambdatest.com/wd/hub";
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("platformName", "ios");
+//        capabilities.setCapability("deviceName", "iPad 10.9 (2022)");
+//        capabilities.setCapability("platformVersion", "16");
+//        capabilities.setCapability("isRealMobile", true);
+        
+        
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "ios");
-        capabilities.setCapability("deviceName", "iPad 10.9 (2022)");
+        capabilities.setCapability("platformName", "tvos");
+        capabilities.setCapability("deviceName", "Apple TV");
         capabilities.setCapability("platformVersion", "16");
         capabilities.setCapability("isRealMobile", true);
         
