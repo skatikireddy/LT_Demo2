@@ -20,10 +20,9 @@ public class TestNGTodo2 {
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
-        ;
         
+        String username = "srinivas.kishafoundation";
+        String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
         /*
         Steps to run Smart UI project (https://beta-smartui.lambdatest.com/)
         Step - 1 : Change the hub URL to @beta-smartui-hub.lambdatest.com/wd/hub
@@ -38,7 +37,7 @@ public class TestNGTodo2 {
         caps.setCapability("platform", "Windows 10");
         caps.setCapability("browserName", "chrome");
         caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("build", "TestNG With Java_Terminal");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
