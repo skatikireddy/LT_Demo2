@@ -31,8 +31,8 @@ public class TestNGTodo2 {
         Note: for additional capabilities navigate to https://www.lambdatest.com/support/docs/test-settings-options/
         */
 
-        String hub = "@hub.lambdatest.com/wd/hub";
-
+        //String hub = "@hub.lambdatest.com/wd/hub";
+        String hub = "@mobile-hub.lambdatest.com/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "ios");
         capabilities.setCapability("deviceName", "iPad 10.9 (2022)");
