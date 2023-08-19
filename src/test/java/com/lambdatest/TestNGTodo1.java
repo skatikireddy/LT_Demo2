@@ -36,7 +36,7 @@ public class TestNGTodo1 {
         caps.setCapability("platform", "Windows 11");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java_Jenkins124");
+        caps.setCapability("build", "TestNG With Java_Jenkins125");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
         caps.setCapability("console", true);
