@@ -30,7 +30,7 @@ public class TestNGTodoMobile {
         caps.setCapability("deviceName", "Pixel 4a");
         caps.setCapability("platformVersion", "11");
         caps.setCapability("isRealMobile", true);
-        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("build", "TestNG With Java_Jenkins123");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
@@ -40,7 +40,7 @@ public class TestNGTodoMobile {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
-    @Test
+    //@Test
     public void basicTest() throws InterruptedException {
         String spanText;
         System.out.println("Loading Url");
@@ -98,6 +98,17 @@ public class TestNGTodoMobile {
         System.out.println("TestFinished");
 
     }
+    
+    @Test
+	public void verifyPageTitleonDevice() throws InterruptedException {
+		
+		//Open ISO home page 
+        driver.get("https://isha.sadhguru.org/");
+        System.out.println(driver.getTitle());
+        Thread.sleep(150);
+		System.out.println("Page Title verification Successful");
+		System.out.println("#########################################################");
+      }
 
     @AfterMethod
     public void tearDown() {

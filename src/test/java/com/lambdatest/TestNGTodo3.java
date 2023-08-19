@@ -29,7 +29,7 @@ public class TestNGTodo3 {
         caps.setCapability("platform", "MacOS Catalina");
         caps.setCapability("browserName", "Chrome");
         caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java10");
+        caps.setCapability("build", "TestNG With Java_Jenkins123");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 

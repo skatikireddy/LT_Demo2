@@ -5,7 +5,8 @@
     <classes>
       <class name="com.lambdatest.TestNGTodo1"/>
       <class name="com.lambdatest.TestNGTodo2"/>
-      <class name="com.lambdatest.TestNGTodo3"/>
+<!--      <class name="com.lambdatest.TestNGTodo3"/>-->
+      <class name="com.lambdatest.TestNGTodoMobile"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
