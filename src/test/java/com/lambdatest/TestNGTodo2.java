@@ -31,7 +31,7 @@ public class TestNGTodo2 {
         Note: for additional capabilities navigate to https://www.lambdatest.com/support/docs/test-settings-options/
         */
 
-        //String hub = "@hub.lambdatest.com/wd/hub";
+        String hub = "@hub.lambdatest.com/wd/hub";
 //        String hub = "@mobile-hub.lambdatest.com/wd/hub";
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability("platformName", "ios");
@@ -39,19 +39,19 @@ public class TestNGTodo2 {
 //        capabilities.setCapability("platformVersion", "16");
 //        capabilities.setCapability("isRealMobile", true);
         
-        String hub = "@mobile-hub.lambdatest.com/wd/hub";
+        //String hub = "@mobile-hub.lambdatest.com/wd/hub";
+        
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("platformName", "android");
+//        capabilities.setCapability("deviceName", "Pixel 3");
+//        capabilities.setCapability("platformVersion", "10");
+//        capabilities.setCapability("isRealMobile", true);
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "android");
-        capabilities.setCapability("deviceName", "Pixel 3");
-        capabilities.setCapability("platformVersion", "10");
-        capabilities.setCapability("isRealMobile", true);
-        
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//        caps.setCapability("platform", "Windows 11");
-//        caps.setCapability("browserName", "firefox");
-//        caps.setCapability("version", "latest");
-        capabilities.setCapability("build", "TestNG With Java_Jenkins1");
+        capabilities.setCapability("platform", "Windows 11");
+        capabilities.setCapability("browserName", "firefox");
+        capabilities.setCapability("version", "latest");
+        capabilities.setCapability("build", "TestNG With Java10");
         capabilities.setCapability("name", m.getName() + this.getClass().getName());
         capabilities.setCapability("plugin", "git-testng");
 
@@ -126,12 +126,12 @@ public class TestNGTodo2 {
     }
     
     @Test
-	public void verifyLoginFunctionality() {
+	public void verifyPageTitle() throws InterruptedException {
 		
 		//Open ISO home page 
         driver.get("https://isha.sadhguru.org/");
         System.out.println(driver.getTitle());
-		        
+        Thread.sleep(150);
 		System.out.println("Page Title verification Successful");
 		System.out.println("#########################################################");
       }
