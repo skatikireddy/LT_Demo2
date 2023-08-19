@@ -37,7 +37,7 @@ public class TestNGTodo4 {
         caps.setCapability("platform", "MacOS Monterey");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("version", "15.0");
-        caps.setCapability("build", "TestNG With Java_Jenkins125");
+        caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
         caps.setCapability("console", true);
@@ -57,7 +57,7 @@ public class TestNGTodo4 {
         //WebDriver driver=new ChromeDriver();
         //WebDriver driver=new FirefoxDriver();
         //Open ISO web site
-    	driver.get("https://isha.sadhguru.org//");
+    	driver.get("https://isha.sadhguru.org/");
     	//Maximize the browser window
     	driver.manage().window().maximize();
     	

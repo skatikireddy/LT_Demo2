@@ -51,7 +51,7 @@ public class TestNGTodo2 {
         capabilities.setCapability("platform", "Windows 11");
         capabilities.setCapability("browserName", "firefox");
         capabilities.setCapability("version", "latest");
-        capabilities.setCapability("build", "TestNG With Java_Jenkins125");
+        capabilities.setCapability("build", "TestNG With Java_Jenkins126");
         capabilities.setCapability("name", m.getName() + this.getClass().getName());
         capabilities.setCapability("plugin", "git-testng");
 
