@@ -34,12 +34,13 @@ public class TestNGTodo4 {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "MacOS Monterey");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("version", "15.0");
+        caps.setCapability("platform", "Windows 11");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "latest");
         caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
+        caps.setCapability("geoLocation", "IN");
         caps.setCapability("console", true);
         caps.setCapability("terminal", true);
         String[] Tags = new String[] { "Feature", "Falcon", "Severe" };
