@@ -13,7 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LT_demoTest {
+public class LT_demoTest_MAC {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -26,9 +26,9 @@ public class LT_demoTest {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 11");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "latest");
+        caps.setCapability("platform", "MacOS Ventura");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("version", "16.0");
         caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");

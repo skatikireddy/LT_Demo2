@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class LoginTest {
+public class LoginTest_MAC {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -34,9 +34,9 @@ public class LoginTest {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 11");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "latest");
+        caps.setCapability("platform", "MacOS Ventura");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("version", "16.0");
         caps.setCapability("build", "TestNG With Java_Jenkins122");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");

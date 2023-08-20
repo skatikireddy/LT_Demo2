@@ -13,22 +13,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LT_demoTest {
+public class TestNGTodoMobile_MAC {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        
-        String username = "srinivas.kishafoundation";
-        String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
-        String hub = "@hub.lambdatest.com/wd/hub";
+        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
+        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
+        ;
+        String hub = "@mobile-hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 11");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "latest");
+        caps.setCapability("platformName", "ios");
+        caps.setCapability("deviceName", "iPad (2017)");
+        caps.setCapability("platformVersion", "13");
+        caps.setCapability("isRealMobile", true);
         caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
@@ -39,8 +40,8 @@ public class LT_demoTest {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
-    @Test
-    public void basicTest3() throws InterruptedException {
+    //@Test
+    public void basicTest() throws InterruptedException {
         String spanText;
         System.out.println("Loading Url");
         Thread.sleep(100);
@@ -97,6 +98,22 @@ public class LT_demoTest {
         System.out.println("TestFinished");
 
     }
+    
+    @Test
+	public void verifyPageTitleonDevice() throws InterruptedException {
+		
+		//Open ISO home page 
+        driver.get("https://isha.sadhguru.org/");
+        System.out.println(driver.getTitle());
+        Thread.sleep(150);
+		System.out.println("Page Title verification Successful");
+		System.out.println("#########################################################");
+		
+		Status = "passed";
+        Thread.sleep(150);
+
+        System.out.println("TestFinished");
+      }
 
     @AfterMethod
     public void tearDown() {
