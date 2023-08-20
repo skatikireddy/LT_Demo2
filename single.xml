@@ -8,6 +8,9 @@
       <class name="com.lambdatest.TestNGTodo3"/>
       <class name="com.lambdatest.TestNGTodo4"/>
       <class name="com.lambdatest.ISORegions"/>
+      <class name="com.lambdatest.LoginTest"/>
+      <class name="com.lambdatest.SampleCookieTest"/>
+      <class name="com.lambdatest.UK_CookiesTest"/>
       <class name="com.lambdatest.TestNGTodoMobile"/>
     </classes>
   </test> <!-- Test -->
