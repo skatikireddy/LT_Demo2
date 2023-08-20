@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class TestNGTodo4 {
+public class BottomWidgetTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -52,7 +52,7 @@ public class TestNGTodo4 {
     
 
     @Test
-	public void verifyBottomWidget() {
+	public void verifyBottomWidget() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
         //WebDriver driver=new ChromeDriver();
@@ -168,7 +168,10 @@ public class TestNGTodo4 {
     	//driver.findElement(By.xpath("/html/body/div[1]/div/div[4]/div")).
     	
     	//refresh the web page and make sure it's not visible.
-    	
+        	  Status = "passed";
+              Thread.sleep(150);
+
+              System.out.println("TestFinished");
     	
 	}
 

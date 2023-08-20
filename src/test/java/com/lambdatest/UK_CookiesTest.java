@@ -50,7 +50,7 @@ public class UK_CookiesTest {
     
 
     @Test
-    public void verifyukCookies() {
+    public void verifyukCookies() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
       // System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
        //WebDriver driver=new ChromeDriver();
@@ -140,8 +140,13 @@ public class UK_CookiesTest {
    		System.out.println("uk Cookie verification Test PASSED");
    	}
       	
-      	driver.close();
-      	driver.quit();
+      	//driver.close();
+      	//driver.quit();
+      	
+      	Status = "passed";
+        Thread.sleep(150);
+
+        System.out.println("TestFinished");
    	
        /*{
          WebElement element = driver.findElement(By.cssSelector(".css-36bdiy .css-0"));

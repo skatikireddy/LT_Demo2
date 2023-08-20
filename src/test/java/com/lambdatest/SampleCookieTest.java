@@ -51,7 +51,7 @@ public class SampleCookieTest {
     }
     
    @Test
-    public void sampleCookieVerification() {
+    public void sampleCookieVerification() throws InterruptedException {
     	// declaration and instantiation of objects/variables  
             //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
             //WebDriver driver=new ChromeDriver();
@@ -115,8 +115,13 @@ public class SampleCookieTest {
         		System.out.println("SUCCESSFULLY, Cookie 'Bottom Widget' got deleted.");
         	System.out.println("Cookie Deletion test passed");
         	}
-        	driver.close();
-        	driver.quit();
+        	
+        	Status = "passed";
+            Thread.sleep(150);
+
+            System.out.println("TestFinished");
+        	//driver.close();
+        	//driver.quit();
         }
 
     @AfterMethod

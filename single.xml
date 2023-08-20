@@ -3,10 +3,10 @@
 <suite thread-count="1" parallel="tests" name="Suite">
   <test thread-count="1" parallel="classes" name="Test">
     <classes>
-      <class name="com.lambdatest.TestNGTodo1"/>
-      <class name="com.lambdatest.TestNGTodo2"/>
-      <class name="com.lambdatest.TestNGTodo3"/>
-      <class name="com.lambdatest.TestNGTodo4"/>
+      <class name="com.lambdatest.DailyQuoteTest"/>
+      <class name="com.lambdatest.PageTitleVerification"/>
+      <class name="com.lambdatest.LT_demoTest"/>
+      <class name="com.lambdatest.BottomWidgetTest"/>
       <class name="com.lambdatest.ISORegions"/>
       <class name="com.lambdatest.LoginTest"/>
       <class name="com.lambdatest.SampleCookieTest"/>

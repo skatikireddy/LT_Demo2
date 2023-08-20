@@ -51,7 +51,7 @@ public class ISORegions {
     
 
     @Test
-	public void verifyRegions() {
+	public void verifyRegions() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
         //WebDriver driver=new ChromeDriver();
@@ -770,7 +770,11 @@ public class ISORegions {
                     System.out.println("Global verification SUCCESSFUL");
                     System.out.println("SUCCESSFULL, Regions Verification Test PASSED");
                     //driver.navigate().refresh();
-                    driver.close();
+                    Status = "passed";
+                    Thread.sleep(150);
+
+                    System.out.println("TestFinished");
+                    //driver.close();
               
         
     }

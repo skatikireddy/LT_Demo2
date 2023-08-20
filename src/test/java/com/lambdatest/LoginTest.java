@@ -51,7 +51,7 @@ public class LoginTest {
     
 
     @Test
-	public void verifyLogin() {
+	public void verifyLogin() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
         //WebDriver driver=new ChromeDriver();
@@ -100,8 +100,11 @@ public class LoginTest {
         
 			System.out.println("User Loged out SUCCESSFULL");
 			System.out.println("Login Test SUCCESSFUL");
-		
-        driver.close();
+			Status = "passed";
+	        Thread.sleep(150);
+
+	        System.out.println("TestFinished");
+       // driver.close();
         //driver.quit();
     }
 

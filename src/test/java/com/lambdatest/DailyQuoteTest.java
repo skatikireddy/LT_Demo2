@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class TestNGTodo1 {
+public class DailyQuoteTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -50,7 +50,7 @@ public class TestNGTodo1 {
     
 
     @Test
-	public void verifyDailyQuote() {
+	public void verifyDailyQuote() throws InterruptedException {
 		
 		//Open ISO home page 
         driver.get("https://isha.sadhguru.org/");
@@ -106,6 +106,10 @@ public class TestNGTodo1 {
           System.out.println("Daily Quote Verification Test PASSED");
           System.out.println("#########################################################");
           
+          Status = "passed";
+          Thread.sleep(150);
+
+          System.out.println("TestFinished");
           //close 
           //driver.close();
       }

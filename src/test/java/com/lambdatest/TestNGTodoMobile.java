@@ -108,6 +108,11 @@ public class TestNGTodoMobile {
         Thread.sleep(150);
 		System.out.println("Page Title verification Successful");
 		System.out.println("#########################################################");
+		
+		Status = "passed";
+        Thread.sleep(150);
+
+        System.out.println("TestFinished");
       }
 
     @AfterMethod
