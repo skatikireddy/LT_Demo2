@@ -1,14 +1,15 @@
 pipeline {
     agent any
     
-    parameters {
-        choice(name: 'ENVIRONMENT', choices: ['single.xml', 'mobile.xml', 'parallel.xml'], description: 'Select the environment for deployment')
-    }
-    
     stages {
-        stage('Test') {
+        stage('Test1') {
             steps {
-                sh "mvn test -D suite=${params.ENVIRONMENT}"
+                sh "mvn test -D suite=single.xml
+            }
+        }
+        stage('Test2') {
+            steps {
+                sh "mvn test -D suite=mobile.xml
             }
         }
     }
