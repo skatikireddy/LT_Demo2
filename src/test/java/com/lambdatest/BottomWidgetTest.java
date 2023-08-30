@@ -53,6 +53,7 @@ public class BottomWidgetTest {
         String[] Tags = new String[] { "Feature", "Falcon", "Severe" };
         caps.setCapability("tags", Tags);
         
+		
 		/*
 		 * DesiredCapabilities capabilities = new DesiredCapabilities(); HashMap<String,
 		 * Object> ltOptions = new HashMap<String, Object>(); ltOptions.put("w3c",
@@ -62,6 +63,7 @@ public class BottomWidgetTest {
 		 * ltOptions.put("build", "ID:" + LocalDate.now()); ltOptions.put("console",
 		 * true); capabilities.setCapability("lt:options", ltOptions);
 		 */
+		 
         
 		/*
 		 * //ChromeOptions browserOptions = new ChromeOptions();

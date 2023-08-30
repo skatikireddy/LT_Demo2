@@ -115,9 +115,11 @@ public class Mobile_DailyQuoteTest {
     	System.out.println("DAILY QUOTE VERIFICATION TEST EXECUTION STARTED");
 		//Open ISO home page 
         driver.get("https://isha.sadhguru.org/");
-		
+        System.out.println("URL opened");
+		Thread.sleep(1000);
 		// identify element and scroll to the location of Daily Quote
         WebElement l=driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/section/div[6]/div[1]/div[1]/div[1]/p"));
+        System.out.println("Element got found" + l.getText());
         // Java script executor
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", l);
         

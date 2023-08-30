@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" parallel="tests" name="Suite">
 	<test name="Test 1_Mobile_DailyQuoteTest">
-		<parameter name="version" value="16" />
-		<parameter name="platform" value="ios" />
-		<parameter name="devicename" value="iPad Pro 12.9 (2022)" />
+		<parameter name="version" value="12" />
+		<parameter name="platform" value="android" />
+		<parameter name="devicename" value="Galaxy.*" />
 		<classes>
 			<class name="com.lambdatest.Mobile_DailyQuoteTest" />
 		</classes>
 	</test>
 	<test name="Test 2_Mobile_DailyQuoteTest">
-		<parameter name="version" value="13" />
-		<parameter name="platform" value="android" />
-		<parameter name="devicename" value="Galaxy S23 Ultra" />
+		<parameter name="version" value="16" />
+		<parameter name="platform" value="ios" />
+		<parameter name="devicename" value="iPad.*" />
 		<classes>
 			<class name="com.lambdatest.Mobile_DailyQuoteTest" />
 		</classes>
