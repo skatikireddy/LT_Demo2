@@ -11,10 +11,5 @@ pipeline {
                 sh 'mvn test -D suite=${params.ENVIRONMENT}'
             }
         }
-        stage('Deploy') {
-            steps {
-                // Your deployment steps here, using the ${params.ENVIRONMENT} variable
-            }
-        }
     }
 }
