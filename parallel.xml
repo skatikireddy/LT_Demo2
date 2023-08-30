@@ -7,7 +7,7 @@
 		<parameter name="platform" value="Windows 11" />
 		<parameter name="browser" value="Chrome" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo1" />
+			<class name="com.lambdatest.LoginTest" />
 		</classes>
 	</test>
 
@@ -16,7 +16,7 @@
 		<parameter name="platform" value="Windows 10" />
 		<parameter name="browser" value="Chrome" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo1" />
+			<class name="com.lambdatest.DailyQuoteTest" />
 		</classes>
 	</test>
 	<test name="Test 3">
@@ -24,7 +24,7 @@
 		<parameter name="platform" value="Windows 11" />
 		<parameter name="browser" value="Firefox" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo2" />
+			<class name="com.lambdatest.DailyQuoteTest" />
 		</classes>
 	</test>
 	<test name="Test 4">
@@ -32,7 +32,7 @@
 		<parameter name="platform" value="Windows 10" />
 		<parameter name="browser" value="Firefox" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo2" />
+			<class name="com.lambdatest.UK_CookiesTest" />
 		</classes>
 	</test>
 	<test name="Test 5">
@@ -40,7 +40,7 @@
 		<parameter name="platform" value="MacOS Catalina" />
 		<parameter name="browser" value="Chrome" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo3" />
+			<class name="com.lambdatest.UK_CookiesTest" />
 		</classes>
 	</test>
 	<test name="Test 6">
@@ -48,7 +48,7 @@
 		<parameter name="platform" value="MacOS Catalina" />
 		<parameter name="browser" value="Chrome" />
 		<classes>
-			<class name="com.lambdatest.TestNGTodo3" />
+			<class name="com.lambdatest.ISORegions" />
 		</classes>
 	</test>
 </suite>
