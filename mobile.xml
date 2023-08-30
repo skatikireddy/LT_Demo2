@@ -17,12 +17,12 @@
 			<class name="com.lambdatest.Mobile_DailyQuoteTest" />
 		</classes>
 	</test>
-	<!--<test name="Test 2">
-		<parameter name="version" value="13" />
+	<test name="Test 3_TestNGTodoMobile1">
+		<parameter name="version" value="12" />
 		<parameter name="platform" value="android" />
-		<parameter name="devicename" value="Galaxy S23 Ultra" />
+		<parameter name="devicename" value="Galaxy.*" />
 		<classes>
 			<class name="com.lambdatest.TestNGTodoMobile1" />
 		</classes>
-	</test>-->
+	</test>
 </suite>

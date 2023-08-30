@@ -123,7 +123,7 @@ public class TestNGTodoMobile1 {
 		System.out.println("click1 Done");
 		driver.findElement(By.className("css-1g4xys3")).click();
 		System.out.println("click2 Done");
-		driver.wait(20);
+		Thread.sleep(1000);
 		//driver.findElement(By.xpath("Australia")).click();
 		//driver.findElement(By.linkText("Australia")).click();
 		//driver.findElement(By.className("css-nlkjvw")).click();
