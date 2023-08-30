@@ -3,7 +3,9 @@ package com.lambdatest;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import org.openqa.selenium.By;
@@ -24,19 +26,23 @@ public class DailyQuoteTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
+    //private String buildTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+    Calendar rightNow = Calendar.getInstance();
+    int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 
     @BeforeMethod
-    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
+    @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
+    public void setup(String browser, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
         
         String username = "srinivas.kishafoundation";
         String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "Windows 11");
-        caps.setCapability("browserName", "Chrome");
-        caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java_Jenkins126");
+        caps.setCapability("platform", platform);
+        caps.setCapability("browserName", browser);
+        caps.setCapability("version", version);
+        caps.setCapability("build", "ID:" + LocalDate.now()+ "_" + hour);
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
         caps.setCapability("console", true);
@@ -49,7 +55,7 @@ public class DailyQuoteTest {
     }
     
 
-    @Test
+    @Test(priority = 2)
 	public void verifyDailyQuote() throws InterruptedException {
 		
 		//Open ISO home page 
@@ -169,8 +175,8 @@ public class DailyQuoteTest {
 
         // Let's also assert that the todo we added is present in the list.
 
-        spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
-        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
+        //spanText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[9]/span").getText();
+        //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(150);
 

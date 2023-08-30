@@ -3,6 +3,7 @@ package com.lambdatest;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,25 +14,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestNGTodoMobile_SamsungTab {
+public class TestNGTodo3 {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
 
     @BeforeMethod
-    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-    	String username = "srinivas.kishafoundation";
+   @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
+    public void TestNGTod3(String browser, String version, String platform,Method method) throws MalformedURLException {
+                
+        String username = "srinivas.kishafoundation";
         String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
-        
-        String hub = "@mobile-hub.lambdatest.com/wd/hub";
+        String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "android");
-        caps.setCapability("deviceName", "Galaxy Tab A 10.1 (2019)");
-        caps.setCapability("platformVersion", "9");
-        caps.setCapability("isRealMobile", true);
-        caps.setCapability("build", "TestNG With Java_Jenkins126");
-        caps.setCapability("name", m.getName() + this.getClass().getName());
+        caps.setCapability("browserName", browser);
+        caps.setCapability("browserVersion",version);
+        caps.setCapability("platform", platform);
+        caps.setCapability("build", "ID:" + LocalDate.now());
+        caps.setCapability("name", method.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
         String[] Tags = new String[] { "Feature", "Tag", "Moderate" };
@@ -40,7 +41,7 @@ public class TestNGTodoMobile_SamsungTab {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
-    //@Test
+    @Test
     public void basicTest() throws InterruptedException {
         String spanText;
         System.out.println("Loading Url");
@@ -90,30 +91,15 @@ public class TestNGTodoMobile_SamsungTab {
 
         // Let's also assert that the todo we added is present in the list.
 
+        spanText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[9]/span")).getText();
         //spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
-        //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
+        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(800);
 
         System.out.println("TestFinished");
 
     }
-    
-    @Test
-	public void verifyPageTitleonDevice() throws InterruptedException {
-		
-		//Open ISO home page 
-        driver.get("https://isha.sadhguru.org/");
-        System.out.println(driver.getTitle());
-        Thread.sleep(150);
-		System.out.println("Page Title verification Successful");
-		System.out.println("#########################################################");
-		
-		Status = "passed";
-        Thread.sleep(150);
-
-        System.out.println("TestFinished");
-      }
 
     @AfterMethod
     public void tearDown() {

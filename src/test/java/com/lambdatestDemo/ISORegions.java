@@ -1,11 +1,9 @@
-package com.lambdatest;
+package com.lambdatestDemo;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.util.Calendar;
 
 import org.openqa.selenium.By;
@@ -27,23 +25,19 @@ public class ISORegions {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
-    //private String buildTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-    Calendar rightNow = Calendar.getInstance();
-    int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 
     @BeforeMethod
-    @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
-    public void setup(String browser, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
+    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
         
         String username = "srinivas.kishafoundation";
         String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", platform );
-        caps.setCapability("browserName", browser);
-        caps.setCapability("version", version);
-        caps.setCapability("build", "ID:" + LocalDate.now()+ "_" + hour);
+        caps.setCapability("platform", "Windows 11");
+        caps.setCapability("browserName", "firefox");
+        caps.setCapability("version", "latest");
+        caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
         caps.setCapability("console", true);
@@ -56,7 +50,7 @@ public class ISORegions {
     }
     
 
-    @Test(priority = 3)
+    @Test
 	public void verifyRegions() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  

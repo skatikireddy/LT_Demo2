@@ -1,9 +1,8 @@
-package com.lambdatest;
+package com.lambdatestDemo;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -28,40 +27,28 @@ public class BottomWidgetTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
-    //private String buildTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-    Calendar rightNow = Calendar.getInstance();
-    int hour = rightNow.get(Calendar.HOUR_OF_DAY);
-    
+
     @BeforeMethod
-    @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
-    public void setup(String browser, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
+    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
         
         String username = "srinivas.kishafoundation";
         String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
         String hub = "@hub.lambdatest.com/wd/hub";
-              
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", platform);
-        caps.setCapability("browserName", browser);
-        caps.setCapability("version", version);
-        caps.setCapability("build", "ID:" + LocalDate.now() + "_" + hour);
-        caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
-        caps.setCapability("plugin", "git-testng");
-        //caps.setCapability("geoLocation", "IN");
-        caps.setCapability("console", true);
-        caps.setCapability("terminal", true);
-        String[] Tags = new String[] { "Feature", "Falcon", "Severe" };
-        caps.setCapability("tags", Tags);
         
-		/*
-		 * DesiredCapabilities capabilities = new DesiredCapabilities(); HashMap<String,
-		 * Object> ltOptions = new HashMap<String, Object>(); ltOptions.put("w3c",
-		 * true); ltOptions.put("platform", platform); ltOptions.put("browserName",
-		 * browser); ltOptions.put("browserVersion", version);
-		 * ltOptions.put("autoHeal",true); //ltOptions.put("build", "12:40");
-		 * ltOptions.put("build", "ID:" + LocalDate.now()); ltOptions.put("console",
-		 * true); capabilities.setCapability("lt:options", ltOptions);
-		 */
+        
+        
+        
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("w3c", true);
+        ltOptions.put("platform", "Windows 11");
+        ltOptions.put("browserName", "Chrome");
+        ltOptions.put("browserVersion", "114");
+        ltOptions.put("autoHeal",true);
+        //ltOptions.put("build", "12:40");
+        ltOptions.put("build", "VisualUI"+ LocalDate.now());
+        ltOptions.put("console", true);
+        capabilities.setCapability("lt:options", ltOptions);
         
 		/*
 		 * //ChromeOptions browserOptions = new ChromeOptions();
@@ -90,19 +77,19 @@ public class BottomWidgetTest {
 		 * caps.setCapability("tags", Tags);
 		 */
 
-        driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
+        driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), capabilities);
 
     }
     
 
-    @Test(priority = 5)
+    @Test
 	public void verifyBottomWidget() throws InterruptedException {
 	// declaration and instantiation of objects/variables  
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
         //WebDriver driver=new ChromeDriver();
         //WebDriver driver=new FirefoxDriver();
         //Open ISO web site
-    	driver.get("https://isha.sadhguru.org/in/en");
+    	driver.get("https://isha.sadhguru.org/");
     	//Maximize the browser window
     	driver.manage().window().maximize();
     	
@@ -137,28 +124,17 @@ public class BottomWidgetTest {
         
         
     	  
-         
-			try {
-				
-				/*
-				 * { WebDriverWait wait = new WebDriverWait(driver, 30);
-				 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
-				 * ".css-1fdja0t"))); }
-				 * 
-				 * { List<WebElement> elements =
-				 * driver.findElements(By.cssSelector(".css-1fdja0t")); assert(elements.size() >
-				 * 0); }
-				 * 
-				 * driver.findElement(By.linkText("Close")).click();
-				 */
-				 
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("Test FAILED, As the Bottom Widget is not Visible");
-				e.printStackTrace();
-				System.exit(1);
-			}
-		
+          {
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".css-1fdja0t")));
+          }
+
+          {
+            List<WebElement> elements = driver.findElements(By.cssSelector(".css-1fdja0t"));
+            assert(elements.size() > 0);
+          }
+
+          driver.findElement(By.linkText("Close")).click();
           
           
           //#####################################################################################
@@ -205,11 +181,11 @@ public class BottomWidgetTest {
               //List<WebElement> elements = driver.findElements(By.xpath("/html/body/div[1]/div/div[1]/header/div[1]/div/div/div[2]/a/div"));
         	  boolean isPresent = driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/header/div[1]/div/div/div[2]/a/div")).isDisplayed();
         	  System.out.println("Successfull, Bottom Widget is Present under Home Page");
-        	  //System.out.println("Bottom Widget Test PASSED");
+        	  System.out.println("Bottom Widget Test PASSED");
         	  }catch (org.openqa.selenium.NoSuchElementException e) {
         		  System.out.println("Unsuccessful, Bottom Widget not Present under Home Page");
         	  }
-        	  //driver.close();
+        	  driver.close();
         	  //driver.quit();
                          
       //Verify the bottom Widget is visible.

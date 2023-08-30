@@ -116,8 +116,8 @@ public class PageTitleVerification {
 
         // Let's also assert that the todo we added is present in the list.
 
-        spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
-        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
+       // spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
+        //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(150);
 

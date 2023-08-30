@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" parallel="tests" name="Suite">
-  <test thread-count="1" parallel="classes" name="Test">
-    <classes>
-      <class name="com.lambdatest.TestNGTodoMobile"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<test name="Test 1">
+		<parameter name="version" value="16" />
+		<parameter name="platform" value="ios" />
+		<parameter name="devicename" value="iPad Pro 12.9 (2022)" />
+		<classes>
+			<class name="com.lambdatest.TestNGTodoMobile" />
+		</classes>
+	</test>
+	<test name="Test 2">
+		<parameter name="version" value="11" />
+		<parameter name="platform" value="android" />
+		<parameter name="devicename" value="Galaxy Note20 Ultra 5G" />
+		<classes>
+			<class name="com.lambdatest.TestNGTodoMobile" />
+		</classes>
+	</test>
+</suite>

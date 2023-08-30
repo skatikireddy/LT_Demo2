@@ -3,6 +3,7 @@ package com.lambdatest;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -19,18 +20,19 @@ public class TestNGTodoMobile {
     private String Status = "failed";
 
     @BeforeMethod
-    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
-        ;
+    @org.testng.annotations.Parameters(value = {"devicename", "version", "platform"})
+    public void setup(String devicename, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
+    	String username = "srinivas.kishafoundation";
+        String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
+        
         String hub = "@mobile-hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "android");
-        caps.setCapability("deviceName", "Pixel 4a");
-        caps.setCapability("platformVersion", "11");
+        caps.setCapability("platformName", platform);
+        caps.setCapability("deviceName", devicename);
+        caps.setCapability("platformVersion", version);
         caps.setCapability("isRealMobile", true);
-        caps.setCapability("build", "TestNG With Java_Jenkins126");
+        caps.setCapability("build", "ID:" + LocalDate.now());
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
 
@@ -40,7 +42,7 @@ public class TestNGTodoMobile {
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
     }
 
-    //@Test
+    @Test
     public void basicTest() throws InterruptedException {
         String spanText;
         System.out.println("Loading Url");
@@ -90,7 +92,8 @@ public class TestNGTodoMobile {
 
         // Let's also assert that the todo we added is present in the list.
 
-        spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
+        spanText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[9]/span")).getText();
+        //spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
         Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(800);
@@ -98,22 +101,6 @@ public class TestNGTodoMobile {
         System.out.println("TestFinished");
 
     }
-    
-    @Test
-	public void verifyPageTitleonDevice() throws InterruptedException {
-		
-		//Open ISO home page 
-        driver.get("https://isha.sadhguru.org/");
-        System.out.println(driver.getTitle());
-        Thread.sleep(150);
-		System.out.println("Page Title verification Successful");
-		System.out.println("#########################################################");
-		
-		Status = "passed";
-        Thread.sleep(150);
-
-        System.out.println("TestFinished");
-      }
 
     @AfterMethod
     public void tearDown() {

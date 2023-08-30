@@ -1,4 +1,4 @@
-package com.lambdatest;
+package com.lambdatestDemo;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
 
 
-public class DailyQuoteTest_MAC {
+public class DailyQuoteTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -33,9 +33,9 @@ public class DailyQuoteTest_MAC {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", "MacOS Ventura");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("version", "16.0");
+        caps.setCapability("platform", "Windows 11");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "latest");
         caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
@@ -169,7 +169,7 @@ public class DailyQuoteTest_MAC {
 
         // Let's also assert that the todo we added is present in the list.
 
-        //spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
+        //spanText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[9]/span").getText();
         //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(150);

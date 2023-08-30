@@ -1,4 +1,4 @@
-package com.lambdatest;
+package com.mobiletestDemo;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -13,7 +13,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestNGTodoMobile_SamsungTab {
+public class TestNGTodoMobile {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -27,8 +27,8 @@ public class TestNGTodoMobile_SamsungTab {
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "android");
-        caps.setCapability("deviceName", "Galaxy Tab A 10.1 (2019)");
-        caps.setCapability("platformVersion", "9");
+        caps.setCapability("deviceName", "Pixel 4a");
+        caps.setCapability("platformVersion", "11");
         caps.setCapability("isRealMobile", true);
         caps.setCapability("build", "TestNG With Java_Jenkins126");
         caps.setCapability("name", m.getName() + this.getClass().getName());
@@ -90,7 +90,7 @@ public class TestNGTodoMobile_SamsungTab {
 
         // Let's also assert that the todo we added is present in the list.
 
-        //spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
+       // spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
         //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
         Status = "passed";
         Thread.sleep(800);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="20" parallel="tests" name="Suite">
+ <test name="test1">
+  <classes>
+      <class name="com.lambdatest.DailyQuoteTest"/>
+  </classes>
+  </test>
+  <test name="test2">
+    <classes>
+      <class name="com.lambdatest.PageTitleVerification"/>
+    </classes>
+  </test>
+  <test name="test3">
+    <classes>
+      <class name="com.lambdatest.TestNGTodoMobile_SamsungTab"/>
+    </classes>
+  </test>
+  <test name="test4">
+    <classes>
+      <class name="com.lambdatest.TestNGTodoMobile_SamsungNote"/>
+    </classes>
+  </test>
+</suite>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="20" parallel="tests" name="Suite">
+  <test thread-count="20" parallel="classes" name="Test">
+    <classes>
+      <class name="com.lambdatest.DailyQuoteTest"/>
+      <class name="com.lambdatest.PageTitleVerification"/>
+      <class name="com.lambdatest.LT_demoTest"/>
+      <class name="com.lambdatest.BottomWidgetTest"/>
+      <class name="com.lambdatest.ISORegions"/>
+      <class name="com.lambdatest.LoginTest"/>
+      <class name="com.lambdatest.SampleCookieTest"/>
+      <class name="com.lambdatest.UK_CookiesTest"/>
+      <class name="com.lambdatest.TestNGTodoMobile"/>
+      <class name="com.lambdatest.TestNGTodoMobile_SamsungNote"/>
+      <class name="com.lambdatest.TestNGTodoMobile_SamsungTab"/>
+      <class name="com.lambdatest.DailyQuoteTest_MAC"/>
+      <class name="com.lambdatest.PageTitleVerification_MAC"/>
+      <class name="com.lambdatest.LT_demoTest_MAC"/>
+      <class name="com.lambdatest.BottomWidgetTest_MAC"/>
+      <class name="com.lambdatest.ISORegions_MAC"/>
+      <class name="com.lambdatest.LoginTest_MAC"/>
+      <class name="com.lambdatest.SampleCookieTest_MAC"/>
+      <class name="com.lambdatest.UK_CookiesTest_MAC"/>
+      <class name="com.lambdatest.TestNGTodoMobile_MAC"/>
+    </classes>
+  </test>  Test 
+</suite>  Suite -->

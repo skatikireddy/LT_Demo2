@@ -1,11 +1,9 @@
-package com.lambdatest;
+package com.lambdatestDemo;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
 
@@ -27,23 +25,19 @@ public class LoginTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
-    //String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-    Calendar rightNow = Calendar.getInstance();
-    int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 
     @BeforeMethod
-    @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
-    public void setup(String browser, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
+    public void setup(Method m, ITestContext ctx) throws MalformedURLException {
         
         String username = "srinivas.kishafoundation";
         String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platform", platform);
-        caps.setCapability("browserName", browser);
-        caps.setCapability("version", version);
-        caps.setCapability("build", "ID:" + LocalDate.now() + "_"+hour);
+        caps.setCapability("platform", "Windows 11");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "latest");
+        caps.setCapability("build", "TestNG With Java_Jenkins120");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
         caps.setCapability("console", true);
@@ -96,18 +90,44 @@ public class LoginTest {
         // 7 | click | id=txtEmail |  | 
         driver.findElement(By.xpath("/html/body/div[4]/div[3]/section/div/div/div/div/div/div[1]/div/div[9]/div/div/div/div/a/div[2]")).click();
         // 8 | type | id=txtEmail | vasu.0018@gmail.com | 
-        driver.findElement(By.id("txtEmail")).sendKeys("email@gmail.com");
+        driver.findElement(By.id("txtEmail")).sendKeys("vasu.0018@gmail.com");
         // 9 | click | id=txtPassword |  | 
         driver.findElement(By.id("txtPassword")).click();
         // 10 | type | id=txtPassword | r3st@rtl!f3 | 
-        driver.findElement(By.id("txtPassword")).sendKeys("password");
+        driver.findElement(By.id("txtPassword")).sendKeys("r3st@rtl!f3");
         // 11 | click | id=btnLogin |  | 
         driver.findElement(By.id("btnLogin")).click();
+        WebElement profileName = new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.className("css-uavp59")));
+        // Print the first result
+        System.out.println("Loged as user:" + profileName.getText());
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/header/div[1]/div/div/div[4]/a/div/div")).getText().contains("srinivas katikireddy");
+        // 13 | click | css=.css-uavp59 |  | 
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[1]/header/div[1]/div/div/div[4]/a/div/div")).click();
+        // 14 | click | linkText=Sign Out |  | 
+        driver.findElement(By.linkText("Sign Out")).click();
+        // 15 | assertElementPresent | linkText=Login |  | 
+        {
+          List<WebElement> elements = driver.findElements(By.linkText("Login"));
+          assert(elements.size() > 0);
+        }
+        // 16 | assertElementNotPresent | css=.css-uavp59 | srinivas katikireddy | 
+        {
+          List<WebElement> elements = driver.findElements(By.cssSelector(".css-uavp59"));
+          assert(elements.size() == 0);
+        }
         
+        try {
+			WebElement afterLogout = new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[1]/header/div[1]/div/div/div[4]/a/div/div")));
+			// Print the first result
+			System.out.println("Loged as user:" + afterLogout.getText() + "which is not expected, Please report as issue");
+		} catch (org.openqa.selenium.TimeoutException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
 			System.out.println("User Loged out SUCCESSFULL");
 			System.out.println("Login Test SUCCESSFUL");
-			Status = "passed";
-	        Thread.sleep(150);
+		}
+        Status = "passed";
+	    Thread.sleep(150);
 
 	        System.out.println("TestFinished");
        // driver.close();
