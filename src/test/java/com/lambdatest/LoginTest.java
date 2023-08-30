@@ -65,7 +65,8 @@ public class LoginTest {
      // 2 | setWindowSize | 1366x729 |  | 
         //driver.manage().window().setSize(new Dimension(1366, 729));
         driver.manage().window().maximize();
-        
+        System.out.println("#################################################################################");
+        System.out.println("LOGIN TEST EXECUTION STARTED");
     	// Test name: Login_Testcase
         // Step # | name | target | value | comment
         // 1 | open | / |  | 
@@ -110,6 +111,7 @@ public class LoginTest {
 	        Thread.sleep(150);
 
 	        System.out.println("TestFinished");
+	        System.out.println("#################################################################################");
        // driver.close();
         //driver.quit();
     }

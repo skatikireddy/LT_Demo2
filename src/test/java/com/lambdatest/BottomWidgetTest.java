@@ -101,6 +101,8 @@ public class BottomWidgetTest {
         //System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
         //WebDriver driver=new ChromeDriver();
         //WebDriver driver=new FirefoxDriver();
+    	System.out.println("#################################################################################");
+    	System.out.println("BOTTOM WIDGET TEST EXECUTION STARTED");
         //Open ISO web site
     	driver.get("https://isha.sadhguru.org/in/en");
     	//Maximize the browser window
@@ -227,6 +229,7 @@ public class BottomWidgetTest {
               Thread.sleep(150);
 
               System.out.println("TestFinished");
+              System.out.println("#################################################################################");
     	
 	}
 

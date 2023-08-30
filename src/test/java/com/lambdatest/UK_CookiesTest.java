@@ -60,7 +60,8 @@ public class UK_CookiesTest {
 	// declaration and instantiation of objects/variables  
       // System.setProperty("webdriver.chrome.driver", "/home/isha/Selenium/chromedriver-linux64/chromedriver");  
        //WebDriver driver=new ChromeDriver();
-       
+    	System.out.println("#################################################################################");
+       System.out.println("UK COOKIES TEST EXECUTION STARTED");
      //maximize the browser window.
    	driver.manage().window().maximize();
    	
@@ -153,7 +154,7 @@ public class UK_CookiesTest {
         Thread.sleep(150);
 
         System.out.println("TestFinished");
-   	
+        System.out.println("#################################################################################");
        /*{
          WebElement element = driver.findElement(By.cssSelector(".css-36bdiy .css-0"));
          Actions builder = new Actions(driver);

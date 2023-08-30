@@ -63,7 +63,8 @@ public class ISORegions {
         //WebDriver driver=new ChromeDriver();
 		//WebDriver driver=new FirefoxDriver();
     	//#####################Australia Verification Starts from here.############################
-        
+    	System.out.println("#################################################################################");
+        System.out.println("REGIONS VERIFICATION TEST EXECUTION STARTED");
       //driver.manage().window().setSize(new Dimension(1366, 729));
         driver.manage().window().maximize();
         
@@ -780,6 +781,7 @@ public class ISORegions {
                     Thread.sleep(150);
 
                     System.out.println("TestFinished");
+                    System.out.println("#################################################################################");
                     //driver.close();
               
         

@@ -57,7 +57,8 @@ public class DailyQuoteTest {
 
     @Test(priority = 2)
 	public void verifyDailyQuote() throws InterruptedException {
-		
+    	System.out.println("#################################################################################");
+    	System.out.println("DAILY QUOTE VERIFICATION TEST EXECUTION STARTED");
 		//Open ISO home page 
         driver.get("https://isha.sadhguru.org/");
 		
@@ -110,12 +111,13 @@ public class DailyQuoteTest {
           
           System.out.println("SUCCESSFUL, Daily Quote's data updated along with date");
           System.out.println("Daily Quote Verification Test PASSED");
-          System.out.println("#########################################################");
+          
           
           Status = "passed";
           Thread.sleep(150);
 
           System.out.println("TestFinished");
+          System.out.println("#################################################################################");
           //close 
           //driver.close();
       }
