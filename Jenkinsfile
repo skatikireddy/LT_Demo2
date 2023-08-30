@@ -6,7 +6,7 @@ pipeline{
 	stages {
   stage('Test') {
     steps {
-    sh 'mvn test -D suite=$PerformBuild
+    sh 'mvn test -D suite='''$PerformBuild'''
     }
   }
 
