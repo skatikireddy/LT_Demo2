@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters {
-        choice(name: 'ENVIRONMENT', choices: ['single.xml', 'mobile.xml', 'parllel.xml'], description: 'Select the environment for deployment')
+        choice(name: 'ENVIRONMENT', choices: ['single.xml', 'mobile.xml', 'parallel.xml'], description: 'Select the environment for deployment')
     }
     
     stages {
