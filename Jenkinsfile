@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Test1') {
             steps {
-                sh "mvn test -D suite=single.xml
+                sh 'mvn test -D suite=single.xml'
             }
         }
         stage('Test2') {
             steps {
-                sh "mvn test -D suite=mobile.xml
+                sh 'mvn test -D suite=mobile.xml'
             }
         }
     }
