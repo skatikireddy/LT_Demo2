@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'mvn test -D suite=${params.ENVIRONMENT}
+                sh 'mvn test -D suite=${params.ENVIRONMENT}'
             }
         }
         stage('Deploy') {
