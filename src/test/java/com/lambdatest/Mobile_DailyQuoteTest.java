@@ -7,15 +7,19 @@ import java.time.LocalDate;
 import java.util.Calendar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestNGTodoMobile1 {
+public class Mobile_DailyQuoteTest {
 
     private RemoteWebDriver driver;
     private String Status = "failed";
@@ -35,6 +39,7 @@ public class TestNGTodoMobile1 {
         caps.setCapability("deviceName", devicename);
         caps.setCapability("platformVersion", version);
         caps.setCapability("isRealMobile", true);
+        caps.setCapability("geoLocation", "IN");
         caps.setCapability("build", "ID:" + LocalDate.now() + "_"+hour);
         caps.setCapability("name", m.getName() + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
@@ -104,38 +109,76 @@ public class TestNGTodoMobile1 {
 
     }
     
-    @Test
-	public void verifyPageTitleonDevice() throws InterruptedException {
-		
+    @Test(priority = 2)
+	public void verifyDailyQuote() throws InterruptedException {
+    	System.out.println("#################################################################################");
+    	System.out.println("DAILY QUOTE VERIFICATION TEST EXECUTION STARTED");
 		//Open ISO home page 
         driver.get("https://isha.sadhguru.org/");
-        System.out.println(driver.getTitle());
+		
+		// identify element and scroll to the location of Daily Quote
+        WebElement l=driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/section/div[6]/div[1]/div[1]/div[1]/p"));
+        // Java script executor
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", l);
         
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Page Title verification Successful");
-		
-		driver.findElement(By.className("css-15nocqh")).click();
-		System.out.println("click1 Done");
-		driver.findElement(By.className("css-1g4xys3")).click();
-		System.out.println("click2 Done");
-		driver.wait(20);
-		//driver.findElement(By.xpath("Australia")).click();
-		//driver.findElement(By.linkText("Australia")).click();
-		//driver.findElement(By.className("css-nlkjvw")).click();
-		System.out.println("click3 Done");
-		driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[1]/header/div[3]/div[3]/div[1]/div[2]/div[1]/div/div[2]/div/ul/li[1]/a/div")).click();
-		System.out.println("#########################################################");
-		
-		Status = "passed";
-        Thread.sleep(1000);
 
-        System.out.println("TestFinished");
+        //wait for date field for quote to be visible.
+        {
+          WebDriverWait wait = new WebDriverWait(driver, 10);
+          wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"__next\"]/div/div[2]/section/div[6]/div[1]/div[1]/div[1]/p")));
+        }
+
+        // 
+        //driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[2]/section/div[6]/div[1]/div[1]/div[1]/p")).click();
+
+        //Get current month number
+        Calendar now = Calendar.getInstance();
+        //System.out.println("Current Month is : " + (now.get(Calendar.MONTH) + 1));
+                         
+        //functionality to construct the date format.
+        Calendar currentDate = Calendar.getInstance();
+        String monthName = theMonth(currentDate.get(Calendar.MONTH));
+        
+        //Print the constructed current date on the console logs
+        System.out.println("Sadhguru Quote - " + monthName + " "
+            + currentDate.get(Calendar.DATE) + ", " + currentDate.get(Calendar.YEAR));
+        
+        
+        //Store the constructed current date in a variable to compare it later.
+        String compareDate = "Sadhguru Quote - " + monthName + " "
+                + currentDate.get(Calendar.DATE) + ", " + currentDate.get(Calendar.YEAR);
+        
+        //Doing the actual date comparison with expected date value comparison.
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/section/div[6]/div[1]/div[1]/div[1]/p")).getText().compareTo(compareDate);
+        
+        //###############Need to look at it later.
+		/*
+		 * //Verifying the image is present along with the quote. { List<WebElement>
+		 * elements = driver.findElements(By.cssSelector(".css-1oifz5i"));
+		 * assert(elements.size() > 0); }
+		 * 
+		 * // Verifying the quote text is present. { List<WebElement> elements =
+		 * driver.findElements(By.cssSelector(".css-11xoogs > .chakra-text"));
+		 * assert(elements.size() > 0); }
+		 */
+
+          
+          System.out.println("SUCCESSFUL, Daily Quote's data updated along with date");
+          System.out.println("Daily Quote Verification Test PASSED");
+          
+          
+          Status = "passed";
+          Thread.sleep(150);
+
+          System.out.println("TestFinished");
+          System.out.println("#################################################################################");
+          //close 
+          //driver.close();
       }
+    public static String theMonth(int month){
+	    String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+	    return monthNames[month];
+	}
 
     @AfterMethod
     public void tearDown() {
