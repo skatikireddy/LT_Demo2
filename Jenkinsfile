@@ -21,6 +21,14 @@ pipeline {
 
         }
      }
+post{
+        changed{
+            emailext to: "srinivas.k@ishafoundation.org",
+            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
+        }
+    }
+/**     
 post {
     always {
         mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html' , cc: '', from: '', replyTo: '', subject: "'${currentBuild.result}'", to: 'srinivas.k@ishafoundation.org'
