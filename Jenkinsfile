@@ -21,6 +21,12 @@ pipeline {
 
         }
      }
+post {
+    always {
+        mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html' , cc: '', from: '', replyTo: '', subject: "'${currentBuild.result}'", to: 'srinivas.k@ishafoundation.org'
+    }
+    
+  }
 /**
 post {
     always {
