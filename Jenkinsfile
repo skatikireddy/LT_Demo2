@@ -26,7 +26,7 @@ post {
              //def console_output = "${env.BUILD_URL}/console" 
              mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: 'Failing UIVeri5 Tests', to: 'srinivas.k@ishafoundation.org'
          }  
-         unstable {  
+         changed {  
              mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: 'Failing UIVeri5 Tests', to: 'srinivas.k@ishafoundation.org'
          }  
          
