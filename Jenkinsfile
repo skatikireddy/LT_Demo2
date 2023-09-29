@@ -21,13 +21,16 @@ pipeline {
 
         }
      }
-post{
-        changed{
-            emailext to: "srinivas.k@ishafoundation.org",
-            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
-        }
-    }
+post {  
+         failure {  
+             //def console_output = "${env.BUILD_URL}/console" 
+             mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: 'Failing UIVeri5 Tests', to: 'srinivas.k@ishafoundation.org'
+         }  
+         unstable {  
+             mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: 'Failing UIVeri5 Tests', to: 'srinivas.k@ishafoundation.org'
+         }  
+         
+     }
 /**     
 post {
     always {
