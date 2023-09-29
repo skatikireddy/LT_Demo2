@@ -27,9 +27,10 @@ post {
              //def console_output = "${env.BUILD_URL}/console" 
              mail bcc: '', body: "Details: ${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: 'Failing UIVeri5 Tests', to: 'srinivas.k@ishafoundation.org'
          }
-         */  
+         */
+         //Tested Working Fine, Need to improvize the subject and body.  
          always {  
-             mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html', cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: "${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", to: 'srinivas.k@ishafoundation.org'
+             mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html', cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: "${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", to: 'pooja.gaddam@ishafoundation.org, srinivas.k@ishafoundation.org'
              
          }  
          
