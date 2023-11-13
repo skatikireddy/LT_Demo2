@@ -35,8 +35,13 @@ public class LoginTest {
     @org.testng.annotations.Parameters(value = {"browser", "version", "platform"})
     public void setup(String browser, String version, String platform, Method m, ITestContext ctx) throws MalformedURLException {
         
-        String username = "srinivas.kishafoundation";
-        String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
+    	//Old Credentials
+        //String username = "srinivas.kishafoundation";
+        //String authkey = "MCtpqmcJj7B6NJfj38NAtD5eYW6UUgwXgF77zqNAMhY1mkbEEI";
+        
+        //Latest Credentials
+    	String username = "srinivas.kishafoundation";
+    	String authkey = "rYvGjIb5ZiSXZtuYsBBi5wWxx4YNk2pO08UDPY97d3UtMBQvtE";
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();

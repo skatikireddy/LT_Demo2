@@ -30,7 +30,7 @@ post {
          */
          //Tested Working Fine, Need to improvize the subject and body.  
          always {  
-             mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html', cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: "${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", to: 'srinivas.k@ishafoundation.org,sireesha.vijay@ishafoundation.org,thangaraj.j@ishafoundation.org,pooja.gaddam@ishafoundation.org'
+             mail bcc: '', body: readFile("target/surefire-reports/emailable-report.html"), mimeType: 'text/html', cc: '', from: 'srinivas.k@ishafoundation.org', replyTo: '', subject: "${env.JOB_NAME} Build Number: ${env.BUILD_NUMBER} Build: ${env.BUILD_URL} Console Output: ${env.BUILD_URL}/console", to: 'srinivas.k@ishafoundation.org'
              
          }  
          
